@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Web Store
 
 This is a simple web store created with React. It allows users to view products, add them to a cart, and proceed to checkout. The app includes registration and login functionality, as well as various shipping options.
@@ -18,3 +19,6 @@ Follow these steps to set up and run the app locally:
 1. Clone the repository to your local machine:
    ```bash
    git clone <repository-url>
+=======
+# web-store
+>>>>>>> 2aaa6139293c595dc0ecf4b46904cce3e769b6ae
