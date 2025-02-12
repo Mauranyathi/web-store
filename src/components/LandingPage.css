@@ -1,0 +1,21 @@
+.landing-page {
+  background-color: #f9f3f9;
+  color: #333;
+  text-align: center;
+  padding: 50px;
+}
+
+h2 {
+  color: #ff66b2;
+  font-family: 'Arial', sans-serif;
+}
+
+a {
+  color: #ff66b2;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff99cc;
+}
