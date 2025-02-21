@@ -1,9 +1,23 @@
-.card-img-top {
-    width: 100%;
-    height: auto;
-  }
-  
-  .card {
-    margin-bottom: 30px;
-  }
-  
+/* src/components/StorePage.css */
+.store-container {
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.product-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.product-card img {
+  width: 250px; /* Fixed width for images */
+  height: 250px; /* Fixed height for images */
+  object-fit: cover; /* Ensures images are cropped properly if needed */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}

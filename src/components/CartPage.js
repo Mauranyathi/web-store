@@ -1,83 +1,58 @@
+// src/components/CartPage.js
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart, clearCart } from '../redux/actions/cartActions';
+import './CartPage.css';
 
-function CartPage() {
+const CartPage = () => {
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
+  const [shippingMethod, setShippingMethod] = useState('standard');
 
-  // Shipping options
-  const shippingOptions = ['Standard Shipping', 'Express Shipping'];
-  const [selectedShipping, setSelectedShipping] = useState(shippingOptions[0]);
-  
-  // Handle item removal
-  const handleRemove = (id) => {
-    dispatch({
-      type: 'REMOVE_FROM_CART',
-      payload: id,
-    });
-  };
+  const total = cart.reduce((acc, item) => acc + item.price, 0);
 
-  // Calculate total cost
-  const totalCost = cart.reduce((acc, item) => acc + item.price, 0);
-
-  // Handle shipping change
-  const handleShippingChange = (e) => {
-    setSelectedShipping(e.target.value);
-  };
-
-  // Handle checkout (simplified for now)
+  const handleRemove = (id) => dispatch(removeFromCart(id));
   const handleCheckout = () => {
-    alert('Proceeding to checkout with shipping: ' + selectedShipping);
-    // Further checkout functionality could be added here (e.g., payment, address form)
+    alert('Thank you for your purchase! Your order has been placed.');
+    dispatch(clearCart());
   };
 
   return (
-    <div className="container">
-      <h2>Your Cart</h2>
-      {cart.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        <div>
-          <ul>
-            {cart.map(item => (
-              <li key={item.id}>
-                <span>{item.name} - ${item.price}</span>
-                <button onClick={() => handleRemove(item.id)} className="btn btn-danger ml-3">
-                  Remove
-                </button>
-              </li>
-            ))}
-          </ul>
-          
-          {/* Display total cost */}
-          <h3>Total: ${totalCost}</h3>
+    <div className="cart-container">
+      <h2>Your Shopping Cart</h2>
 
-          {/* Shipping selection */}
-          <div className="form-group">
-            <label htmlFor="shipping">Select Shipping Method</label>
-            <select
-              id="shipping"
-              value={selectedShipping}
-              onChange={handleShippingChange}
-              className="form-control"
-            >
-              {shippingOptions.map((option, index) => (
-                <option key={index} value={option}>
-                  {option}
-                </option>
-              ))}
+      {cart.length > 0 ? (
+        <>
+          <div className="cart-items">
+            {cart.map((item, index) => (
+              <div key={index} className="cart-item">
+                <img src={item.image} alt={item.name} className="cart-item-img" />
+                <div className="cart-item-details">
+                  <h3>{item.name}</h3>
+                  <p>Price: ${item.price}</p>
+                  <button onClick={() => handleRemove(item.id)} className="remove-btn">Remove</button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <h3>Total: ${total.toFixed(2)}</h3>
+
+          <div className="shipping-selection">
+            <label htmlFor="shipping">Shipping Method:</label>
+            <select id="shipping" value={shippingMethod} onChange={(e) => setShippingMethod(e.target.value)}>
+              <option value="standard">Standard Shipping - Free</option>
+              <option value="express">Express Shipping - $5.99</option>
             </select>
           </div>
 
-          {/* Checkout Button */}
-          <button onClick={handleCheckout} className="btn btn-success">
-            Proceed to Checkout
-          </button>
-        </div>
+          <button className="checkout-btn" onClick={handleCheckout}>Proceed to Checkout</button>
+        </>
+      ) : (
+        <p className="empty-cart">Your cart is empty</p>
       )}
     </div>
   );
-}
+};
 
 export default CartPage;
-

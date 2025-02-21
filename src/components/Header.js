@@ -1,29 +1,31 @@
-import React, { useState } from 'react';
+// src/components/Header.js
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import './Header.css';
 
-function Header() {
-  const [username, setUsername] = useState('');
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Simple login mechanism
-    setUsername('User');
-  };
+const Header = ({ username }) => {
+  const cart = useSelector(state => state.cart); // Get cart items from Redux
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link to="/" className="navbar-brand">Bella Luz Boutique</Link>
-      <div className="navbar-nav">
-        <Link to="/store" className="nav-item nav-link">Store</Link>
-        <Link to="/cart" className="nav-item nav-link">Cart</Link>
-        {username ? (
-          <span className="navbar-text">{username}</span>
+    <header className="header">
+      <nav>
+        <Link to="/" className="nav-link">Home</Link> {/* ✅ Home link added back */}
+        <Link to="/store" className="nav-link">Store</Link>
+        <Link to="/cart" className="nav-link cart-icon">
+          🛒 Cart <span className="cart-count">{cart.length}</span>
+        </Link>
+        {!username ? (
+          <>
+            <Link to="/login" className="nav-link">Login</Link>
+            <Link to="/register" className="nav-link">Register</Link>
+          </>
         ) : (
-          <button onClick={handleLogin} className="btn btn-outline-success">Login</button>
+          <span className="username">Welcome, {username}!</span>
         )}
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
-}
+};
 
 export default Header;

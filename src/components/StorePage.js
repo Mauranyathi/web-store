@@ -1,28 +1,28 @@
+// src/components/StorePage.js
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard';
+import './StorePage.css';
+import goldennecklace from '../assets/goldnecklace.webp';
+import silverring from '../assets/silverring.jpg';
+import goldenearrings from '../assets/golden earrings.jpg';
 
 const products = [
-  { id: 1, name: 'Gold Necklace', price: 200, image: 'https://via.placeholder.com/150' },
-  { id: 2, name: 'Silver Ring', price: 100, image: 'https://via.placeholder.com/150' },
-  { id: 3, name: 'Diamond Earrings', price: 500, image: 'https://via.placeholder.com/150' },
+  { id: 1, name: 'Gold Necklace', price: 200, image: goldennecklace },
+  { id: 2, name: 'Silver Ring', price: 100, image: silverring },
+  { id: 3, name: 'Golden Earrings', price: 500, image: goldenearrings },
 ];
 
-function StorePage() {
+const StorePage = () => {
   return (
-    <div className="container">
+    <div className="store-container">
       <h2>Our Products</h2>
-      <div className="row">
+      <div className="product-list">
         {products.map(product => (
-          <div key={product.id} className="col-md-4">
-            <ProductCard product={product} />
-          </div>
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
-      <Link to="/cart" className="btn btn-secondary">Go to Cart</Link>
     </div>
   );
-}
+};
 
 export default StorePage;

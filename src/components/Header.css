@@ -1,20 +1,46 @@
+/* src/components/Header.css */
 .header {
-  background-color: #ff66b2;
-  color: white;
-  padding: 10px 20px;
+  background-color: #333; /* Dark header background */
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Arial', sans-serif;
+  border-bottom: 2px solid #ff66b2; /* Light pink border */
 }
 
 nav a {
   color: white;
-  margin: 0 10px;
+  margin: 0 15px;
   text-decoration: none;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 nav a:hover {
-  color: #f7c6d3;
+  color: #f7c6d3; /* Lighter pink on hover */
+}
+
+/* Cart Icon */
+.cart-icon {
+  position: relative;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.cart-count {
+  background-color: #ff66b2; /* Bright pink */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+}
+
+.username {
+  color: #f7c6d3; /* Soft pink */
+  font-weight: bold;
+  font-size: 16px;
 }

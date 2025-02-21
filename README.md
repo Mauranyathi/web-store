@@ -1,24 +1,17 @@
-<<<<<<< HEAD
-# Web Store
+# My Web Store
 
-This is a simple web store created with React. It allows users to view products, add them to a cart, and proceed to checkout. The app includes registration and login functionality, as well as various shipping options.
+This is a simple e-commerce web store built with React.
+
+## Requirements
+- Node.js
+- npm (or yarn)
+
+## Setup
+1. Clone this repository
+2. Run `npm install` to install dependencies
+3. Run `npm start` to start the development server
 
 ## Features
-
-- **User Registration**: Users can create an account by providing their name, email, username, and password.
-- **Login**: Users can log in with their credentials, and their username is displayed in the header.
-- **Product Store**: A product page that displays items available for purchase.
-- **Shopping Cart**: Users can add items to their cart, remove them, and view the total cost.
-- **Shipping Options**: Choose between different shipping methods before checkout.
-- **Responsive UI**: The user interface is designed to be attractive and intuitive.
-
-## Installation
-
-Follow these steps to set up and run the app locally:
-
-1. Clone the repository to your local machine:
-   ```bash
-   git clone <repository-url>
-=======
-# web-store
->>>>>>> 2aaa6139293c595dc0ecf4b46904cce3e769b6ae
+- Product display
+- Cart management
+- User registration/login

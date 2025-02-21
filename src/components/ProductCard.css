@@ -3,12 +3,7 @@
   border: 1px solid #eee;
   padding: 15px;
   border-radius: 8px;
-  width: 200px;
   text-align: center;
-}
-
-.product-card h3 {
-  color: #ff66b2;
 }
 
 button {

@@ -1,9 +1,19 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f9f3f9;
-  margin: 0;
+/* App.css */
+
+/* Global styling for the navigation bar */
+nav {
+  background-color: #ff66b2; /* Soft pink */
+  padding: 20px;
+  text-align: center;
 }
 
-h1 {
-  color: #ff66b2;
+.nav-link {
+  color: white;
+  margin: 0 15px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #f7c6d3;
 }

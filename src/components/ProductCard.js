@@ -1,26 +1,24 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/actions/cartActions'; // Importing action
+import './ProductCard.css';
 
-function ProductCard({ product }) {
+const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
 
-  const addToCart = () => {
-    dispatch({
-      type: 'ADD_TO_CART',
-      payload: product,
-    });
+  const handleAddToCart = () => {
+    dispatch(addToCart(product)); // Using action instead of inline object
   };
 
   return (
-    <div className="card">
+    <div className="product-card">
       <img src={product.image} alt={product.name} className="card-img-top" />
-      <div className="card-body">
-        <h5 className="card-title">{product.name}</h5>
-        <p className="card-text">${product.price}</p>
-        <button onClick={addToCart} className="btn btn-primary">Add to Cart</button>
-      </div>
+      <h3>{product.name}</h3>
+      <p>${product.price}</p>
+      <button onClick={handleAddToCart}>Add to Cart</button>
     </div>
   );
 }
 
 export default ProductCard;
+
